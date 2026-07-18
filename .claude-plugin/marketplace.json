@@ -1,0 +1,16 @@
+{
+  "name": "creative-engineering-skills",
+  "owner": {
+    "name": "VectorSophie"
+  },
+  "metadata": {
+    "description": "Personal marketplace for creative-engineering-skills: skills that make coding agents own substantial work"
+  },
+  "plugins": [
+    {
+      "name": "creative-engineering-skills",
+      "source": "./",
+      "description": "Skills for coding agents that own substantial work: research, judgment, product understanding, and verified execution"
+    }
+  ]
+}
