@@ -8,7 +8,7 @@ A personal collection of compact behavioral skills for coding agents, packaged a
 
 ## Canonical source
 
-`skills/make-it-yours/SKILL.md` is the single canonical version of the skill. README.md and EXAMPLES.md summarize and illustrate it — when the skill changes, update their summaries to match, but never let them grow into competing versions of the instructions.
+Each `skills/<name>/SKILL.md` is the single canonical version of that skill. README.md and EXAMPLES.md summarize and illustrate them — when a skill changes, update the summaries to match, but never let them grow into competing versions of the instructions.
 
 ## Style rules
 
@@ -22,7 +22,7 @@ Before committing changes:
 
 - `claude plugin validate .` — checks plugin.json, marketplace.json, and skill frontmatter.
 - Parse every JSON file; check SKILL.md frontmatter is valid YAML with only supported fields (`name`, `description`, `license`).
-- Confirm names stay consistent everywhere: repository, plugin, and marketplace are all `creative-engineering-skills`; the skill is `make-it-yours`.
+- Confirm names stay consistent everywhere: repository, plugin, and marketplace are all `creative-engineering-skills`; skill names match their directory names.
 - Confirm README installation commands match the metadata files.
 
 ## Adding a new skill

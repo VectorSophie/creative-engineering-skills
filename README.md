@@ -1,6 +1,6 @@
 # creative-engineering-skills
 
-Skills that make a coding agent behave less like a ticket executor and more like a trusted founding engineer.
+Skills that make a coding agent behave less like a ticket executor and more like a trusted founding engineer: judgment on ambiguous work (`make-it-yours`), distinctive output (`taste-is-a-constraint`), long-session focus (`keep-the-plot`), and demonstrated completion (`prove-it`).
 
 ## The problem
 
@@ -27,6 +27,14 @@ Then act on it: inspect what exists, research what's genuinely uncertain, commit
 
 The full instructions live in [`skills/make-it-yours/SKILL.md`](skills/make-it-yours/SKILL.md) — that file is the canonical source. Everything else here summarizes it.
 
+## The other skills
+
+Each targets a specific, widely felt failure of agent-assisted work. Each `SKILL.md` is its own canonical source.
+
+- **[`taste-is-a-constraint`](skills/taste-is-a-constraint/SKILL.md)** — kills the samey AI-app look (same font, purple accent, card grid). References before code, ban the default aesthetic, one distinctive choice per project, design from real content. For visual and creative work, not backends.
+- **[`keep-the-plot`](skills/keep-the-plot/SKILL.md)** — fights long-session drift. Decisions written down the moment they're made, re-anchoring on the objective at checkpoints, catching contradictions before they ship, pruning dead context. For multi-hour or resumed work, not quick tasks.
+- **[`prove-it`](skills/prove-it/SKILL.md)** — completion means demonstrated behavior. Run the real thing, treat green tests as necessary but not sufficient, show output instead of adjectives, report what wasn't verified. For any nontrivial "done" claim.
+
 ## Installation
 
 Claude Code is the primary target.
@@ -51,6 +59,9 @@ Once installed, Claude Code discovers the skill automatically when a task matche
 
 ```
 /creative-engineering-skills:make-it-yours
+/creative-engineering-skills:taste-is-a-constraint
+/creative-engineering-skills:keep-the-plot
+/creative-engineering-skills:prove-it
 ```
 
 ## When it triggers
@@ -79,9 +90,11 @@ creative-engineering-skills/
 ├── .claude-plugin/
 │   ├── plugin.json          # plugin metadata
 │   └── marketplace.json     # marketplace catalog (this repo is its own marketplace)
-├── skills/
-│   └── make-it-yours/
-│       └── SKILL.md         # canonical skill instructions
+├── skills/                  # one directory per skill; each SKILL.md is canonical
+│   ├── make-it-yours/
+│   ├── taste-is-a-constraint/
+│   ├── keep-the-plot/
+│   └── prove-it/
 ├── CLAUDE.md                # maintenance guidance for this repo
 ├── EXAMPLES.md              # weak vs. ownership-oriented responses
 ├── README.md
