@@ -1,6 +1,6 @@
 # Examples
 
-Seven scenarios showing the difference between executing a ticket and owning the work. Weak responses are what agents commonly do; ownership-oriented responses show `make-it-yours` applied.
+Eight scenarios showing the difference between executing a ticket and owning the work. Weak responses are what agents commonly do; ownership-oriented responses show the collection's skills applied — the first seven show `make-it-yours`, the last shows `close-the-loop`.
 
 ---
 
@@ -169,3 +169,27 @@ Fixes the string, confirms no other occurrence of "Sing in" exists in the repo, 
 ### What the agent does next
 
 Nothing. Done means done.
+
+---
+
+## 8. Unattended agent run with no stop condition
+
+### User request
+
+"Set this up to keep iterating on the test suite until everything's green, running unattended overnight."
+
+### Weak response
+
+Kicks off a loop that just repeats "run tests, fix failures, repeat" with no iteration cap, no budget, and no check for whether it's actually making progress — it can spin forever on a flaky test or a fix it can't make.
+
+### Why it fails
+
+No stop condition, no per-tick verification beyond "run tests," and nothing durable between ticks except conversation history that won't survive a crash.
+
+### Ownership-oriented response
+
+"Setting a 20-iteration cap and a token budget, plus a no-progress guard: if the same test fails three ticks running, stop and report instead of retrying. Each tick commits its fix separately so progress survives a crash. If it exhausts the budget without going green, I'll report which tests remain and why, not claim success."
+
+### What the agent does next
+
+Runs the loop, and when it hits the no-progress guard on a genuinely flaky test, stops and reports exactly that instead of continuing to burn budget.

@@ -1,6 +1,6 @@
 # creative-engineering-skills
 
-Skills that make a coding agent behave less like a ticket executor and more like a trusted founding engineer: judgment on ambiguous work (`make-it-yours`), distinctive output (`taste-is-a-constraint`), long-session focus (`keep-the-plot`), and demonstrated completion (`prove-it`).
+Skills that make a coding agent behave less like a ticket executor and more like a trusted founding engineer: judgment on ambiguous work (`make-it-yours`), distinctive output (`taste-is-a-constraint`), long-session focus (`keep-the-plot`), demonstrated completion (`prove-it`), and safe unattended execution (`close-the-loop`).
 
 ## The problem
 
@@ -34,6 +34,7 @@ Each targets a specific, widely felt failure of agent-assisted work. Each `SKILL
 - **[`taste-is-a-constraint`](skills/taste-is-a-constraint/SKILL.md)** — kills the samey AI-app look (same font, purple accent, card grid). References before code, ban the default aesthetic, one distinctive choice per project, design from real content. For visual and creative work, not backends.
 - **[`keep-the-plot`](skills/keep-the-plot/SKILL.md)** — fights long-session drift. Decisions written down the moment they're made, re-anchoring on the objective at checkpoints, catching contradictions before they ship, pruning dead context. For multi-hour or resumed work, not quick tasks.
 - **[`prove-it`](skills/prove-it/SKILL.md)** — completion means demonstrated behavior. Run the real thing, treat green tests as necessary but not sufficient, show output instead of adjectives, report what wasn't verified. For any nontrivial "done" claim.
+- **[`close-the-loop`](skills/close-the-loop/SKILL.md)** — engineers safety into autonomous, unattended runs. A real stop condition, per-tick verification, durable state outside the conversation, escalation instead of silent retrying. For scheduled loops, `/loop` runs, and cron- or background-triggered agents.
 
 ## Installation
 
@@ -62,6 +63,7 @@ Once installed, Claude Code discovers the skill automatically when a task matche
 /creative-engineering-skills:taste-is-a-constraint
 /creative-engineering-skills:keep-the-plot
 /creative-engineering-skills:prove-it
+/creative-engineering-skills:close-the-loop
 ```
 
 ## When it triggers
@@ -94,7 +96,8 @@ creative-engineering-skills/
 │   ├── make-it-yours/
 │   ├── taste-is-a-constraint/
 │   ├── keep-the-plot/
-│   └── prove-it/
+│   ├── prove-it/
+│   └── close-the-loop/
 ├── CLAUDE.md                # maintenance guidance for this repo
 ├── EXAMPLES.md              # weak vs. ownership-oriented responses
 ├── README.md
