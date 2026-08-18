@@ -45,6 +45,7 @@ Research when the domain is unfamiliar, an API or dependency may have changed, O
 
 - Prefer primary sources: official docs, specs, source repositories, maintainer docs, issue trackers, then direct safe experiments. Existing implementations often reveal constraints no document mentions.
 - Verify remembered API shapes against current documentation — training-data memory of a fast-moving library is a guess, not knowledge.
+- When investigation is broad enough to fill your own context (multiple independent unknowns, a wide codebase survey), dispatch it to an isolated subagent and pull back only the distilled conclusion — raw exploration transcripts aren't the deliverable.
 - Never ask the user to do research you can do yourself.
 - Stop when you can make a defensible decision, name its key assumptions, and say how it will be tested. Link collection past that point is procrastination.
 

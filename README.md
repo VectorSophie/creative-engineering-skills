@@ -1,6 +1,6 @@
 # creative-engineering-skills
 
-Skills that make a coding agent behave less like a ticket executor and more like a trusted founding engineer: judgment on ambiguous work (`make-it-yours`), distinctive output (`taste-is-a-constraint`), long-session focus (`keep-the-plot`), demonstrated completion (`prove-it`), and safe unattended execution (`close-the-loop`).
+Skills that make a coding agent behave less like a ticket executor and more like a trusted founding engineer: judgment on ambiguous work (`make-it-yours`), distinctive output (`taste-is-a-constraint`), long-session focus (`keep-the-plot`), demonstrated completion (`prove-it`), safe unattended execution (`close-the-loop`), independent verification (`get-a-second-opinion`), and precise execution of explicit direction (`honor-the-brief`).
 
 ## The problem
 
@@ -35,6 +35,8 @@ Each targets a specific, widely felt failure of agent-assisted work. Each `SKILL
 - **[`keep-the-plot`](skills/keep-the-plot/SKILL.md)** — fights long-session drift. Decisions written down the moment they're made, re-anchoring on the objective at checkpoints, catching contradictions before they ship, pruning dead context. For multi-hour or resumed work, not quick tasks.
 - **[`prove-it`](skills/prove-it/SKILL.md)** — completion means demonstrated behavior. Run the real thing, treat green tests as necessary but not sufficient, show output instead of adjectives, report what wasn't verified. For any nontrivial "done" claim.
 - **[`close-the-loop`](skills/close-the-loop/SKILL.md)** — engineers safety into autonomous, unattended runs. A real stop condition, per-tick verification, durable state outside the conversation, escalation instead of silent retrying. For scheduled loops, `/loop` runs, and cron- or background-triggered agents.
+- **[`get-a-second-opinion`](skills/get-a-second-opinion/SKILL.md)** — routes consequential decisions through a check with no shared context or reasoning trail, instead of a self-reread. Know what needs one, keep it actually independent, hand over the output not the justification, treat disagreement as signal. For security-sensitive, irreversible, or high-stakes work.
+- **[`honor-the-brief`](skills/honor-the-brief/SKILL.md)** — once direction is specific, implement exactly that instead of drifting back toward a grander version. Recognize when judgment's already been made, build the boundary not the backstory, flag deviations instead of folding them in silently. The mirror image of `make-it-yours`: for direction that's already closed, not open.
 
 ## Installation
 
@@ -64,6 +66,8 @@ Once installed, Claude Code discovers the skill automatically when a task matche
 /creative-engineering-skills:keep-the-plot
 /creative-engineering-skills:prove-it
 /creative-engineering-skills:close-the-loop
+/creative-engineering-skills:get-a-second-opinion
+/creative-engineering-skills:honor-the-brief
 ```
 
 ## When it triggers
@@ -97,7 +101,9 @@ creative-engineering-skills/
 │   ├── taste-is-a-constraint/
 │   ├── keep-the-plot/
 │   ├── prove-it/
-│   └── close-the-loop/
+│   ├── close-the-loop/
+│   ├── get-a-second-opinion/
+│   └── honor-the-brief/
 ├── CLAUDE.md                # maintenance guidance for this repo
 ├── EXAMPLES.md              # weak vs. ownership-oriented responses
 ├── README.md

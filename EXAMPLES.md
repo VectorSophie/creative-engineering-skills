@@ -1,6 +1,6 @@
 # Examples
 
-Eight scenarios showing the difference between executing a ticket and owning the work. Weak responses are what agents commonly do; ownership-oriented responses show the collection's skills applied — the first seven show `make-it-yours`, the last shows `close-the-loop`.
+Ten scenarios showing the difference between executing a ticket and owning the work. Weak responses are what agents commonly do; ownership-oriented responses show the collection's skills applied — the first seven show `make-it-yours`, the eighth shows `close-the-loop`, the ninth shows `get-a-second-opinion`, the tenth shows `honor-the-brief`.
 
 ---
 
@@ -193,3 +193,51 @@ No stop condition, no per-tick verification beyond "run tests," and nothing dura
 ### What the agent does next
 
 Runs the loop, and when it hits the no-progress guard on a genuinely flaky test, stops and reports exactly that instead of continuing to burn budget.
+
+---
+
+## 9. Security-sensitive change, self-reviewed
+
+### User request
+
+"I refactored the auth middleware to fix the session bug — tests pass, ready to merge?"
+
+### Weak response
+
+Re-reads its own diff, decides it looks correct, and reports it ready to merge. No one who didn't write the change has looked at it.
+
+### Why it fails
+
+Session handling is exactly the kind of security-sensitive, hard-to-unwind change where self-review preserves whatever blind spot produced the bug in the first place. Confidence isn't verification.
+
+### Ownership-oriented response
+
+"Diff's ready, but this touches session handling, so before merging I ran it through an independent security pass rather than just rereading my own change. It flagged that the new token isn't invalidated on logout — fixing that now before this goes anywhere near merge."
+
+### What the agent does next
+
+Runs the independent check, treats its finding as real signal rather than arguing it away, fixes the actual gap, and reports what the check covered.
+
+---
+
+## 10. Direction already made, quietly overridden
+
+### User request
+
+"Use the small version of the logo — just the two stars overlapping, nothing else."
+
+### Weak response
+
+Builds the full original logo with the extra flourishes back in, because it "read better" as a complete mark — silently discarding the scoped-down direction.
+
+### Why it fails
+
+The user already chose between the full mark and the small one. Rebuilding the bigger version isn't an improvement, it's overriding a decision that was already made, without saying so.
+
+### Ownership-oriented response
+
+Implements exactly the two overlapping stars, nothing else, and confirms the result matches what was described.
+
+### What the agent does next
+
+Ships the scoped version. If it still believes the fuller mark works better somewhere, it says so as a one-line aside — it doesn't build it unasked.
