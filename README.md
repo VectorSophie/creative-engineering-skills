@@ -1,6 +1,6 @@
 # creative-engineering-skills
 
-Skills that make a coding agent behave less like a ticket executor and more like a trusted founding engineer: judgment on ambiguous work (`make-it-yours`), distinctive output (`taste-is-a-constraint`), long-session focus (`keep-the-plot`), demonstrated completion (`prove-it`), safe unattended execution (`close-the-loop`), independent verification (`get-a-second-opinion`), and precise execution of explicit direction (`honor-the-brief`).
+Skills that make an agent behave less like a ticket executor and more like a trusted collaborator: engineering judgment on ambiguous work, distinctive output, long-session focus, demonstrated completion, safe unattended execution, independent verification, precise execution of explicit direction, and a research-paper layer for citation grounding, claim-evidence alignment, reviewer pressure-testing, venue compliance, visual evidence, rebuttals, and artifact traceability.
 
 ## The problem
 
@@ -38,6 +38,20 @@ Each targets a specific, widely felt failure of agent-assisted work. Each `SKILL
 - **[`get-a-second-opinion`](skills/get-a-second-opinion/SKILL.md)** — routes consequential decisions through a check with no shared context or reasoning trail, instead of a self-reread. Know what needs one, keep it actually independent, hand over the output not the justification, treat disagreement as signal. For security-sensitive, irreversible, or high-stakes work.
 - **[`honor-the-brief`](skills/honor-the-brief/SKILL.md)** — once direction is specific, implement exactly that instead of drifting back toward a grander version. Recognize when judgment's already been made, build the boundary not the backstory, flag deviations instead of folding them in silently. The mirror image of `make-it-yours`: for direction that's already closed, not open.
 
+
+### Research and paper skills
+
+These stay deliberately modular: invoke the one failure mode the paper actually has instead of loading a conference-writing encyclopedia into every research task.
+
+- **[`cite-what-you-read`](skills/cite-what-you-read/SKILL.md)** — citations become evidence only after both the source and the exact cited claim are verified. Separates discovered, read, and claim-verified literature instead of letting search results masquerade as scholarship.
+- **[`make-the-claim-earn-it`](skills/make-the-claim-earn-it/SKILL.md)** — keeps claim strength bounded by evidence, assumptions, scope, and plausible alternative explanations. The research equivalent of `prove-it`.
+- **[`write-for-reviewers`](skills/write-for-reviewers/SKILL.md)** — structures a paper as an argument a skeptical reviewer can reconstruct quickly: contribution first, Introduction as contract, one job per paragraph, Related Work as technical delta.
+- **[`red-team-the-paper`](skills/red-team-the-paper/SKILL.md)** — runs genuinely independent pre-submission review across distinct lenses, then collapses criticism into an evidence-backed concern-to-fix map instead of a stack of reviewer role-play.
+- **[`answer-the-reviewers`](skills/answer-the-reviewers/SKILL.md)** — turns received reviews into direct answers, evidence, manuscript changes, and traceable commitments without wasting the rebuttal on defensive rhetoric.
+- **[`honor-the-venue`](skills/honor-the-venue/SKILL.md)** — treats current venue rules as an authoritative brief. Verifies the correct year and submission phase instead of trusting conference folklore cached in model memory.
+- **[`make-the-figure-argue`](skills/make-the-figure-argue/SKILL.md)** — makes figures and tables carry a specific piece of evidence honestly, legibly, and reproducibly. Every panel needs a reason to exist.
+- **[`paper-meets-artifact`](skills/paper-meets-artifact/SKILL.md)** — keeps reported results traceable from manuscript claim back through figure/table, processed output, script, raw run, configuration, and code/environment.
+
 ## Installation
 
 Claude Code is the primary target.
@@ -68,6 +82,14 @@ Once installed, Claude Code discovers the skill automatically when a task matche
 /creative-engineering-skills:close-the-loop
 /creative-engineering-skills:get-a-second-opinion
 /creative-engineering-skills:honor-the-brief
+/creative-engineering-skills:cite-what-you-read
+/creative-engineering-skills:make-the-claim-earn-it
+/creative-engineering-skills:write-for-reviewers
+/creative-engineering-skills:red-team-the-paper
+/creative-engineering-skills:answer-the-reviewers
+/creative-engineering-skills:honor-the-venue
+/creative-engineering-skills:make-the-figure-argue
+/creative-engineering-skills:paper-meets-artifact
 ```
 
 ## When it triggers
@@ -78,6 +100,7 @@ Intended for substantial or ambiguous work:
 - planning and implementing a major feature or choosing architecture
 - entering an unfamiliar technical domain or evaluating an uncertain stack
 - broad requests that require research and judgment
+- research manuscripts where citations, claims, reviewer expectations, figures, venue rules, rebuttals, or experiment provenance need disciplined handling
 
 Not for tiny bug fixes, one-line edits, formatting, mechanical renames, version bumps, or tasks with a complete authoritative spec. The skill itself scales its ceremony down to zero for trivial work.
 
@@ -88,6 +111,8 @@ Not for tiny bug fixes, one-line edits, formatting, mechanical renames, version 
 - The first deliverable is a running vertical slice, not a plan or empty scaffolding.
 - Clarifying questions are rare, and each one names the decision that depends on the answer.
 - Completion reports say what was verified and what remains uncertain.
+- Paper claims stay traceable to evidence and scope; citations are verified at claim level; reviewer concerns produce concrete fixes rather than reassurance.
+- Submission-specific work checks the current venue rules and keeps figures and reported results reproducible from their underlying artifacts.
 
 ## Repository structure
 
@@ -103,7 +128,15 @@ creative-engineering-skills/
 │   ├── prove-it/
 │   ├── close-the-loop/
 │   ├── get-a-second-opinion/
-│   └── honor-the-brief/
+│   ├── honor-the-brief/
+│   ├── cite-what-you-read/
+│   ├── make-the-claim-earn-it/
+│   ├── write-for-reviewers/
+│   ├── red-team-the-paper/
+│   ├── answer-the-reviewers/
+│   ├── honor-the-venue/
+│   ├── make-the-figure-argue/
+│   └── paper-meets-artifact/
 ├── CLAUDE.md                # maintenance guidance for this repo
 ├── EXAMPLES.md              # weak vs. ownership-oriented responses
 ├── README.md
@@ -119,11 +152,11 @@ Fork or clone, then edit `skills/make-it-yours/SKILL.md` — Claude Code follows
 
 ## Tradeoffs
 
-The skill biases toward autonomy and momentum over check-ins. That's the point, but it means the agent will make more independent calls on medium-stakes choices — review its stated assumptions rather than expecting a question for each one. It adds a small amount of up-front inspection and research to substantial tasks; on genuinely trivial work it should add nothing.
+The engineering skills bias toward autonomy and momentum over check-ins. That's the point, but it means the agent will make more independent calls on medium-stakes choices — review its stated assumptions rather than expecting a question for each one. The research skills bias toward traceability and evidential discipline, which adds verification work around literature, claims, experiments, and venue constraints. On genuinely trivial work, both layers should add nothing.
 
 ## Attribution
 
-The compact, behavioral format is inspired by small skill repositories such as `andrej-karpathy-skills`. All content here is original; no endorsement or affiliation is implied.
+The compact, behavioral format is inspired by small skill repositories such as `andrej-karpathy-skills`. The research-paper layer also draws conceptual inspiration from `TianyuCodings/Tianyu_writing_skills` and `hzwer/WritingAIPaper`, `a-attia/scicomp-research-skills`, `Orchestra-Research/AI-Research-SKILLs`, `euzun/security-paper-writing`, `AlexWortega/ai-peer-review-skill`, `vaskers5/paper-rebuttal-skill`, `Yuan1z0825/nature-skills`, and `LeonChaoX/qinyan-academic-skills`. The skills here are original compact behavioral distillations rather than vendored copies; no endorsement or affiliation is implied.
 
 ## License
 
